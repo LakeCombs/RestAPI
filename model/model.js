@@ -1,5 +1,5 @@
 const express = require('express')
-cons mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 const studentSchema = mongoose.Schema({
     name:{

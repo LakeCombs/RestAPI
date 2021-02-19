@@ -1,13 +1,29 @@
 //creating an instance of express
 const express = require('express')
+const mongoose = require('mongoose')
 require('dotenv').config();
 
-const mongoose = require("mongoose")
 const studentModel = require('./model/model')
 const app = express()
 const PORT = process.env.PORT
 
-mongoose.connect('')
+const DB = "mongodb+srv://lakecombs:lakecombs@cluster0.tibgj.mongodb.net/StudentsDB?retryWrites=true&w=majority"
+
+// mongoose.connect(process.env.MONGODB_URL, {
+mongoose.connect(DB, {
+
+    useFindAndModify:false,
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+    useCreateIndex:true,
+})
+mongoose.connection.once('open',()=>{
+    console.log("connected to datebase successfully...")
+}).on('error', ()=>{
+    console.log('Database connection failed...')
+})
+
+// mongoose.connect('')
 
 
 //use the app 
