@@ -1,6 +1,7 @@
 //creating an instance of express
 const express = require('express')
 const mongoose = require('mongoose')
+const router = express("./Router/route.js")
 require('dotenv').config();
 
 const studentModel = require('./model/model')
@@ -28,6 +29,7 @@ mongoose.connection.once('open',()=>{
 
 //use the app 
 app.use(express.json())
+app.use('/api/', router)
 
 app.listen(PORT, ()=>{
     console.log(`app is listening to ${PORT}`)
