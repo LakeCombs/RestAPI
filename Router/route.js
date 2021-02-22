@@ -3,6 +3,7 @@ const {newStudent, getAllStudent, getOneStudent, deleteStudent,deleteAllStudent,
 const router = express.Router();
 
 //to map the multar picture
+// router.post
 
 //mappping out the route
 router.post('/students', newStudent);
